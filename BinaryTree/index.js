@@ -7,11 +7,15 @@ class Node{
 }
 
 class BSTree{
+
   constructor(){
     this.root = null
   }
+  
   add(data){
+
     const node = this.root;
+
     if(node == null){
       this.root = new Node(data);
       return;
@@ -27,7 +31,7 @@ class BSTree{
             return searchTree(node.left)
           }
 
-        }else if(data < node.data){
+        }else if(data > node.data){
 
           if(node.right == null){
             node.right = new Node(data);
@@ -40,23 +44,24 @@ class BSTree{
 
         return null;
       }
+      return searchTree(node);
     }
-    return searchTree(node);
+    
   }
 
   findMin(){
     let current = this.root;
-    while(current.left != null){
+    while(current.left !== null)
       current = current.left;
-    }
+
     return current.data;
   }
 
   findMax(){
     let current = this.root;
-    while(current.right != null){
+    while(current.right != null)
       current = current.right;
-    }
+    
     return current.data;
   }
 
@@ -110,3 +115,21 @@ class BSTree{
     this.root = removeNode(this.root,data);
   }
 }
+
+const bst = new BSTree();
+
+bst.add(4);
+bst.add(2);
+bst.add(6);
+bst.add(1);
+bst.add(3);
+bst.add(5);
+bst.add(7);
+bst.remove(7);
+console.log(bst.findMax());
+console.log(bst.findMin());
+console.log(bst.findMin());
+console.log(bst.isPresent(4));
+
+
+

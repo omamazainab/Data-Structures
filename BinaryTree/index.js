@@ -80,7 +80,7 @@ class BSTree{
 
   isPresent(data){
     let current = this.root;
-    while(current){
+    while(current!=null){
       if(data === current.data) return true;
       if(data < current.data) current = current.left;
       if(data > current.data) current = current.right;
@@ -118,18 +118,19 @@ class BSTree{
 
 const bst = new BSTree();
 
-bst.add(4);
-bst.add(2);
-bst.add(6);
-bst.add(1);
 bst.add(3);
-bst.add(5);
-bst.add(7);
-bst.remove(7);
+bst.add(1);
+bst.add(2);
+bst.add(-1);
+bst.add(0);
+bst.add(6);
+bst.add(8);
+bst.remove(0);
 console.log(bst.findMax());
 console.log(bst.findMin());
 console.log(bst.findMin());
-console.log(bst.isPresent(4));
+console.log(bst.isPresent(0));
 
+// console.log(bst.root)
 
 
